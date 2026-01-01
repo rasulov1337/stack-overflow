@@ -215,7 +215,7 @@ def ask(request):
 def edit_profile(request):
     if request.method == 'GET':
         form = EditProfileForm(user=request.user)
-        return render(request, 'settings.html', {'form': form})
+        return render(request, 'settings.html', {'form': form, 'username': request.user.username})
 
     form = EditProfileForm(data=request.POST, user=request.user, files=request.FILES)
     if form.is_valid():
@@ -224,7 +224,7 @@ def edit_profile(request):
             return redirect(reverse('edit-profile'))
         else:
             form.add_error(field=None, error='Profile saving error:')
-    return render(request, 'settings.html', {'form': form})
+    return render(request, 'settings.html', {'form': form, 'username': request.user.username})
 
 
 @login_required

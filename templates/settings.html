@@ -1,18 +1,18 @@
-{% extends "layouts/base.html" %}
-{% load django_bootstrap5 %}
-{% load static %}
-
+{% extends "layouts/base.html" %} {% load django_bootstrap5 %} {% load static %}
 {% block content %}
 
-    <h1 class="mb-4">Settings: Dr. Pepper</h1>
+<h1 class="mb-4">Settings: {{username}}</h1>
 
-    <form action="" method="post" class="w-100 d-flex flex-column gap-3" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% bootstrap_form form %}
+<form
+  action=""
+  method="post"
+  class="w-100 d-flex flex-column gap-3"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %} {% bootstrap_form form %}
 
-        <div class="col-7">
-            <button type="submit" class="btn btn-outline-primary col-3">Save</button>
-        </div>
-
-    </form>
+  <div class="col-7">
+    <button type="submit" class="btn btn-outline-primary col-3">Save</button>
+  </div>
+</form>
 {% endblock %}
